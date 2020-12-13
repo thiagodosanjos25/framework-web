@@ -1,0 +1,83 @@
+<body>
+  <div class="col-xl-4 col-md-6 col-sm topo">
+    <h3>Cadastro para atendimento presencial - UNIPÊ </h3><br>
+  </div>
+  
+  <div class="formulario">
+    <form (ngSubmit)="saveAgendamento(f)" #f="ngForm">
+      <div>
+          <label for="name"><b>Nome:</b></label>
+          <input type="text" [(ngModel)]="agendamento.nome" id="nome" name="nome" #name="ngModel" required class="form-control"  
+          placeholder="Digite o nome completo"  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" >
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <label for="data"><b>Data:</b></label>
+          <input type="text" [(ngModel)]="agendamento.data" id="data" name="data" #name="ngModel" required class="form-control"  
+          placeholder="Digite a data"  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" >
+        </div>        
+      </div>
+      <div>
+          <label for="coordenador"><b>Coordenador:</b></label>
+          <input type="text" [(ngModel)]="agendamento.coordenador" id="coordenador" name="coordenador" #name="ngModel" required class="form-control"  
+          placeholder="Digite o nome do coordenador"  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" >
+      </div>
+      <div>
+          <label for="assunto"><b>Assunto:</b></label>
+          <input type="text" [(ngModel)]="agendamento.assunto" id="assunto" name="assunto" #name="ngModel" required class="form-control"  
+          placeholder="Digite o assunto"  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" >
+      </div>
+      <div>
+          <label for="descricao"><b>Descrição:</b></label>
+          <textarea class="form-control" rows="3" type="text" [(ngModel)]="agendamento.descricao" id="descricao" name="descricao" #name="ngModel" required class="form-control"  
+          [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" >
+          </textarea>
+      </div>
+      <!-- Botão de Cadastrar-->
+      <div>
+        <br>
+        <button id ="btnlistar_e_cadastrar" class="btn btn-dark btn-sm" type="submit" [disabled]="f.form.invalid">Cadastrar</button>
+    </div>
+  </form>
+  </div>
+   
+  <!-- Mostrando os dados armazenados -->
+  <div class="tabela table-responsive">
+      <button class="btn btn-dark btn-sm ml-1"  (click)="getAgendamentos()" type="button">Listar agendamentos</button>
+      <div class=" table-responsive card-body">
+        <table class="table table-over table-dark" id="dados_tabela">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+                <th scope="col">Coordenador</th>
+                <th scope="col">Assunto</th>
+                <th scope="col">Descrição</th>
+                <th scope="col" colspan="2" center>Ação</th>       
+              </tr>
+            </thead>
+            <tbody class="tbody-ligth">
+              <tr *ngFor="let agendamento of agendamentos">
+                <td>{{agendamento.id}}</td>
+                <td>{{agendamento.nome}}</td>
+                <td>{{agendamento.data}}</td>
+                <td>{{agendamento.coordenador}}</td>
+                <td>{{agendamento.assunto}}</td>
+                <td>{{agendamento.descricao}}</td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm ml-3"  (click)="editAgendamento(agendamento)" routerLink="/agendamento-update/{{agendamento.id}}" routerLinkActive="active">Editar</button>                  
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteAgendamento(agendamento)">Apagar</button>                  
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</body>
+<footer>
+   
+</footer>

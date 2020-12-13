@@ -1,0 +1,53 @@
+body, footer {
+    background-color:#ffffff;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+
+.topo {
+    color: rgb(3, 3, 3);
+    width: 70%;
+    padding: 5px;
+    padding-bottom: 2px;
+    margin: auto;
+    text-align: center;
+    float: auto;
+    margin-top: 20px;
+    margin-bottom: -15px;
+    position: relative;
+}
+
+.formulario {
+    background-color:#4e4e4e;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+    color:#ffffff;
+    padding: 15px;
+}
+
+#btnlistar_e_cadastrar {
+    margin-left: 08px;
+    width: 16%;
+    background-color:#121312;
+    color:#ffffff;
+}
+
+.tabela {
+    background-color:#4e4e4e;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+    color:#2C3D4F;
+    padding: 15px;
+}
+
+.dados_tabela {
+    text-align: center;
+    
+}
+
+.footer {
+    text-align: justify;
+}
